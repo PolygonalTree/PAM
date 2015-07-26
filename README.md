@@ -20,4 +20,4 @@ Dependencies:
 * Python installed
 * Virtualenv
 
-It will be all packed in the future to a nice installer for Windows, MacOSX and Linux, help is wellcome.
+It will be all packed in the future to a nice installer for Windows, MacOSX and Linux, help is welcome.
