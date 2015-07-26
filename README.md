@@ -10,7 +10,7 @@ The app needs to be distributed in compressed format (for now tar.gz) and need t
 In the future it will support .whl packages and other distribution format.
 
 Some screenshoots:
-![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/PAM.png)
+![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/pam.png)
 ![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/install.png)
 
 It uses NW.js to run the application. 
