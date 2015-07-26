@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PAM, python app manager</title>
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body ng-app="pamApp" ng-controller="mainController" ng-cloak>
+
+   <nav>
+    <div class="nav-wrapper  light-green darken-2">
+      <a href="#!" class="brand-logo">PAM <small>Python app manager</small></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#" target="_blank">Help</a></li>
+      </ul>
+      <ul class="side-nav" id="mobile-demo">
+        <li><a href="#" target="_blank">Help</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+
+    <div id="applicationList" class="s12" ng-show="show == 'applicationList'">
+        <h3>Installed apps</h3>
+        <div class="row">
+            <div class="col s1 m2" ng-repeat="app in listOfApps">
+                <a class=" waves-effect waves-teal " ng-click="launchApp(app.name)">
+    <img class="responsive-img" src="{{app.icon}}">
+        </a>
+               <font size="2">{{app.name}}</font>
+            </div>
+        </div>
+        <hr></hr>
+        <button class="waves-effect waves-light btn" ng-click="show='install'">Install +</button>
+    </div>
+    <div id="install" class="s12" ng-show="show=='install'">
+        <p>Install App</p>
+        <div class="row">
+            <form action="#" method="post">
+                <div class="input-field col s12">
+                    <div class="file-field input-field">
+                        <input placeholder="i.e. /home/downloads.." id="app_file" class="file-path validate" type="text" />
+                        <label for="app_file">Select an App file:</label>
+                        <div class="">
+                            <input id="AppFile" type="file" onchange="angular.element(this).scope().fileNameChanged(this)"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field col s12">
+                    <p>Which python version do you need:</p>
+                    <div>
+                        <input class="with-gap" name="group1" type="radio" id="python2" ng-model="pythonVersion" value="python2" ng-change="pythonVersionCheck()"/>
+                        <label for="python2">Python 2.7</label>
+                    </div>
+                    <div>
+                        <input class="with-gap" name="group1" type="radio" id="python3"  value="python3" ng-model="pythonVersion" ng-change="pythonVersionCheck()" checked/>
+                        <label for="python3">Python 3</label>
+                    </div>
+                </div>
+                </div>
+                <div class=row>
+                <button class="s12 btn waves-effect waves-light" ng-click="show=applicationList">Cancel</button>
+                <button class="s12 btn waves-effect waves-light" ng-click="performInstallation()">Install</button>
+                </div>
+            </form>
+  </div>
+  <script type="text/javascript" src="../js/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/angular.min.js"></script>
+  <script type="text/javascript" src="../js/angular-route.min.js"></script>
+
+  <script type="text/javascript" src="../js/main.js"></script>
+  <script type="text/javascript" src="../js/materialize.min.js"></script>
+
+
+
+
+  </body>
+</html>
