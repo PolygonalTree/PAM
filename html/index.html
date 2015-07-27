@@ -21,10 +21,10 @@
   </nav>
   <div class="container">
 
-    <div id="applicationList" class="s12" ng-show="show == 'applicationList'">
+    <div id="applicationList" class="s12" ng-show="manager.show == 'applicationList'">
         <h3>Installed apps</h3>
         <div class="row">
-            <div class="col s1 m2" ng-repeat="app in listOfApps">
+            <div class="col s1 m2" ng-repeat="app in manager.listOfApps">
                 <a class=" waves-effect waves-teal " ng-click="launchApp(app.name)">
     <img class="responsive-img" src="{{app.icon}}">
         </a>
@@ -32,9 +32,10 @@
             </div>
         </div>
         <hr></hr>
-        <button class="waves-effect waves-light btn" ng-click="show='install'">Install +</button>
+        <button class="waves-effect waves-light btn" ng-click="manager.show='install'">Install +</button>
+      <button class="s12 btn waves-effect waves-light" ng-click="manager.show='installationProcess'">Log</button>
     </div>
-    <div id="install" class="s12" ng-show="show=='install'">
+    <div id="install" class="s12" ng-show="manager.show=='install'">
         <p>Install App</p>
         <div class="row">
             <form action="#" method="post">
@@ -43,32 +44,52 @@
                         <input placeholder="i.e. /home/downloads.." id="app_file" class="file-path validate" type="text" />
                         <label for="app_file">Select an App file:</label>
                         <div class="">
-                            <input id="AppFile" type="file" onchange="angular.element(this).scope().fileNameChanged(this)"/>
+                            <input id="AppFile" type="file" onchange="angular.element(this).scope().install.fileNameChanged(this)"/>
                         </div>
                     </div>
                 </div>
                 <div class="input-field col s12">
                     <p>Which python version do you need:</p>
                     <div>
-                        <input class="with-gap" name="group1" type="radio" id="python2" ng-model="pythonVersion" value="python2" ng-change="pythonVersionCheck()"/>
+                        <input class="with-gap" name="group1" type="radio" id="python2" ng-model="install.pythonVersion" value="python2" ng-change="install.pythonVersionCheck()"/>
                         <label for="python2">Python 2.7</label>
                     </div>
                     <div>
-                        <input class="with-gap" name="group1" type="radio" id="python3"  value="python3" ng-model="pythonVersion" ng-change="pythonVersionCheck()" checked/>
+                        <input class="with-gap" name="group1" type="radio" id="python3"  value="python3" ng-model="install.pythonVersion" ng-change="install.pythonVersionCheck()" checked/>
                         <label for="python3">Python 3</label>
                     </div>
                 </div>
                 </div>
                 <div class=row>
-                <button class="s12 btn waves-effect waves-light" ng-click="show=applicationList">Cancel</button>
-                <button class="s12 btn waves-effect waves-light" ng-click="performInstallation()">Install</button>
+                <button class="s12 btn waves-effect waves-light" ng-click="manager.show='applicationList'">Cancel</button>
+                <button class="s12 btn waves-effect waves-light" ng-click="install.performInstallation()">Install</button>
+
                 </div>
             </form>
-  </div>
+        </div>
+      </div>
+
+      <div id="installation-Process" ng-show="manager.show=='installationProcess'">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div><div class="gap-patch">
+                <div class="circle"></div>
+              </div><div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+        </div>
+      </div>
+
+        <div id="outputInfo">
+            <p>{{manager.output}}</p>
+            <h4>{{output}}</h4>
+          </div>
   <script type="text/javascript" src="../js/jquery.min.js"></script>
   <script type="text/javascript" src="../js/angular.min.js"></script>
   <script type="text/javascript" src="../js/angular-route.min.js"></script>
-
   <script type="text/javascript" src="../js/main.js"></script>
   <script type="text/javascript" src="../js/materialize.min.js"></script>
 

@@ -1,9 +1,10 @@
 #! /bin/bash
-export APP_SOURCE=$1
-export APP_NAME="$2"
-export PYTHON_VERSION=$3
+set -e
+APP_SOURCE=$1
+APP_NAME="$2"
+PYTHON_VERSION=$3
 
-echo "creating virtual enviroment"
+#echo "creating virtual environment"
 cd "$WORKON_HOME"
 virtualenv "$WORKON_HOME/$APP_NAME" -p $PYTHON_VERSION
 
@@ -44,4 +45,5 @@ deactivate
 
 cd -
 
+echo "Instalation_complete"
 

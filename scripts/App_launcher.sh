@@ -1,5 +1,5 @@
 #! /bin/bash
-
+set -e
 export APP_NAME="${1}"
 
 echo "starting App"
