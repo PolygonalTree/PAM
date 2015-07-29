@@ -1,6 +1,8 @@
 # PAM
 Python App Manger.
 
+Version: alpha-v0.1
+
 This a simple application Manager that permits to automatically install python applications and run them.
 In the installation process it creates a virtual enviroment under user_home_directory/.virtualenv with the name of the app.
 The app needs to be distributed in compressed format (for now tar.gz) and need to have at least:
@@ -10,7 +12,7 @@ The app needs to be distributed in compressed format (for now tar.gz) and need t
 In the future it will support .whl packages and other distribution format.
 
 Some screenshoots:
-![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/PAM.png)
+![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/pam.png)
 ![alt tag](https://raw.github.com/polygonaltree/PAM/gh-pages/img/install.png)
 
 It uses NW.js to run the application. 
@@ -18,4 +20,4 @@ Dependencies:
 * Python installed
 * Virtualenv
 
-It will be all packed in the future to a nice installer for Windows, MacOSX and Linux, help is wellcome.
+It will be all packed in the future to a nice installer for Windows, MacOSX and Linux, help is welcome.
